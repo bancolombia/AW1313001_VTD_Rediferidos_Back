@@ -1,0 +1,14 @@
+rootProject.name = 'BaseRediferidosBack'
+
+include ':acceptance-test'
+include ":app-service"
+include ":model"
+include ":usecase"
+include ":api-rest"
+include ":rest-consumer"
+
+project(':app-service').projectDir = file('./applications/app-service')
+project(':model').projectDir = file('./domain/model')
+project(':usecase').projectDir = file('./domain/usecase')
+project(':api-rest').projectDir = file('./infraestructure/entry-points/api-rest')
+project(':rest-consumer').projectDir = file('./infraestructure/driven-adapters/rest-consumer')

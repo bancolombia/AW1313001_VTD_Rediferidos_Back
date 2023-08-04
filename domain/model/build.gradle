@@ -1,0 +1,7 @@
+dependencies {
+	implementation libs.unit_tests
+    implementation 'org.projectlombok:lombok:1.18.18'
+    implementation 'org.projectlombok:lombok:1.18.18'
+    implementation 'org.projectlombok:lombok:1.18.18'
+    compile group: 'javax', name: 'javaee-api', version:'7.0'
+}

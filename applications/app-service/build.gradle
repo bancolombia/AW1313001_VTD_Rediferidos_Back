@@ -1,0 +1,38 @@
+description = "Capa de configuracion e inicio"
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
+
+bootWar {
+    baseName = 'service'
+    archiveName 'API.Rediferidos-web.war'
+}
+
+war {
+    enabled = false
+}
+
+dependencies {
+
+    compile 'org.springframework.boot:spring-boot-starter'
+
+    implementation project(':model')
+    implementation project(':usecase')
+    implementation project(':api-rest')
+    implementation project(":rest-consumer")
+
+    runtime('org.springframework.boot:spring-boot-devtools')
+    compile("org.springframework.boot:spring-boot-starter-undertow")
+    implementation libs.aws_connection
+    implementation libs.java
+    
+}
+
+configurations {
+    compile.exclude module: 'spring-boot-starter-tomcat'
+    compile.exclude group: 'org.apache.tomcat'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '6.8.2' // version required
+}
